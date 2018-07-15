@@ -8,13 +8,6 @@ class MyView extends React.Component {
         }
     }
 
-    calcMultiple =()=> {
-        let res = this.state.item_price * this.state.item_count;
-        this.setState({
-            item_result : res
-        });
-    }
-
     render() {
         return (
             <div>
@@ -27,13 +20,13 @@ class MyView extends React.Component {
     }
 
 }
+
 class MyCalc extends React.Component {
 
     constructor(props) {
         super(props);
 
         this.state = {
-            // ステートを使う際には、他で参照できるように初期化（宣言）が必要
             item_name : this.props.name,
             item_price     : this.props.price,
             item_count     : 0,
@@ -72,8 +65,8 @@ class MyCalc extends React.Component {
     }
 }
 
-/* 生成したコードをindex.htmlの#rootに出力 */
+/* 生成したコードをindex.htmlの#area_calcに出力 */
 ReactDOM.render(
     <MyView title="らくらくお買い物♪" />,
-    document.getElementById('root')
+    document.getElementById('area_calc')
 );
