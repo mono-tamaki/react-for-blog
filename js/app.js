@@ -19,7 +19,9 @@ class MyView extends React.Component {
         return (
             <div>
                 <h1>{this.state.this_title}</h1>
-                <MyCalc name="メロン" />
+                <MyCalc name="メロン" price={540}/>
+                <MyCalc name="りんご" price={160} />
+                <MyCalc name="バナナ" price={230} />
             </div>
         );
     }
@@ -33,21 +35,14 @@ class MyCalc extends React.Component {
         this.state = {
             // ステートを使う際には、他で参照できるように初期化（宣言）が必要
             item_name : this.props.name,
-            item_price     : 0,
+            item_price     : this.props.price,
             item_count     : 0,
             item_result    : 0
         }
 
         // ES6は明示的にbindしてあげる必要がある
-        this.setPrice = this.setPrice.bind(this);
         this.setCount = this.setCount.bind(this);
         this.calcMultiple = this.calcMultiple.bind(this);
-    }
-
-    setPrice =(event)=> {
-        this.setState({
-            item_price : event.target.value
-        });
     }
 
     setCount =(event)=> {
@@ -66,8 +61,7 @@ class MyCalc extends React.Component {
     render() {
         return (
             <div>
-                <p style={{display: "inline"}}>{this.props.name}</p>
-                <input type="text" name="price" placeholder={this.state.item_price} onChange={this.setPrice}/>円
+                <p style={{display: "inline"}}>{this.props.name} : {this.props.price}円</p>
                 &nbsp;x&nbsp;
                 <input type="text" name="count" placeholder={this.state.item_count} onChange={this.setCount}/>
                 &nbsp;
