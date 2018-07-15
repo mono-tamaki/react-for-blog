@@ -18,10 +18,10 @@ class MyCalc extends React.Component {
         super(props);
 
         this.state = {
-            item_name : this.props.name,
-            item_price     : this.props.price,
-            item_count     : 0,
-            item_result    : 0
+            item_name: this.props.name,
+            item_price: this.props.price,
+            item_quantity: 0,
+            item_amount: 0
         }
 
         // ES6は明示的にbindしてあげる必要がある
@@ -31,27 +31,25 @@ class MyCalc extends React.Component {
 
     setCount =(event)=> {
         this.setState({
-            item_count : event.target.value
+            item_quantity: event.target.value
         });
     }
 
     calcMultiple =()=> {
-        let res = this.state.item_price * this.state.item_count;
+        let amount = this.state.item_price * this.state.item_quantity;
         this.setState({
-            item_result : res
+            item_amount: amount
         });
     }
 
     render() {
         return (
-            <div>
-                <p style={{display: "inline"}}>{this.props.name} : {this.props.price}円</p>
-                &nbsp;x&nbsp;
-                <input type="text" name="count" placeholder={this.state.item_count} onChange={this.setCount}/>
-                &nbsp;
-                <button onClick={this.calcMultiple}> = </button>&nbsp;&nbsp;
-                <p style={{display: "inline"}}>{this.state.item_result}</p>円
-            </div>
+            <p>
+                <span>{this.props.name} : {this.props.price}円 x </span>
+                <input type="text" name="count" onChange={this.setCount}/>個
+                <button onClick={this.calcMultiple}> 【計算する】 </button>
+                <span>{this.state.item_amount}</span>円
+            </p>
         );
     }
 }
