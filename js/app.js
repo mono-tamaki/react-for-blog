@@ -1,17 +1,8 @@
 class MyView extends React.Component {
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            // ステートを使う際には、他で参照できるように初期化（宣言）が必要
-            this_title : this.props.title
-        }
-    }
 
     render() {
         return (
             <div>
-                <h1>{this.state.this_title}</h1>
                 <MyCalc name="メロン" price={540}/>
                 <MyCalc name="りんご" price={160} />
                 <MyCalc name="バナナ" price={230} />
@@ -67,6 +58,6 @@ class MyCalc extends React.Component {
 
 /* 生成したコードをindex.htmlの#area_calcに出力 */
 ReactDOM.render(
-    <MyView title="らくらくお買い物♪" />,
+    <MyView />,
     document.getElementById('area_calc')
 );
