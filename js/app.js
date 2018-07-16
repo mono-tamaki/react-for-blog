@@ -3,13 +3,12 @@ class MyView extends React.Component {
     render() {
         return (
             <div>
-                <MyCalc name="メロン" price={540}/>
+                <MyCalc name="メロン" price={540} />
                 <MyCalc name="りんご" price={160} />
                 <MyCalc name="バナナ" price={230} />
             </div>
         );
     }
-
 }
 
 class MyCalc extends React.Component {
