@@ -18,8 +18,6 @@ class MyCalc extends React.Component {
         super(props);
 
         this.state = {
-            item_name: this.props.name,
-            item_price: this.props.price,
             item_quantity: 0,
             item_amount: 0
         }
@@ -36,7 +34,7 @@ class MyCalc extends React.Component {
     }
 
     calcMultiple =()=> {
-        let amount = this.state.item_price * this.state.item_quantity;
+        let amount = this.props.price * this.state.item_quantity;
         this.setState({
             item_amount: amount
         });
